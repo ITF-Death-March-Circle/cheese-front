@@ -17,7 +17,7 @@
     </ul>
     <img src="~/assets/image/Penguin.png" alt="penguin" class="penguin">
   </div>
-  <!-- <div class="example">
+  <div class="example">
     <ul class="example__list">
       <li class="example__item">
         <img src="~/assets/image/36b2e96791f5c36875bfcbc2e922745f.png" alt="ぺんぎんちゃん">
@@ -50,7 +50,7 @@
       </li>
     </ul>
     <img src="~/assets/image/Penguin.png" alt="penguin" class="penguin">
-  </div> -->
+  </div>
 </div>
 </template>
 
@@ -67,6 +67,7 @@
     align-items: center;
     list-style: none;
     margin: 0;
+    padding: 0;
 
     @include mq(sm) {
       justify-content: center;
@@ -77,6 +78,7 @@
   &__item {
     color: white;
     text-align: center;
+
     img {
       width: 200px;
     }
