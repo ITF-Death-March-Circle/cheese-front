@@ -54,7 +54,7 @@
 </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .example {
   width: 100%;
   background: rgb(37, 53, 77);
