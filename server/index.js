@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 const express = require('express')
 const consola = require('consola')
 const { loadNuxt } = require('nuxt-start')
