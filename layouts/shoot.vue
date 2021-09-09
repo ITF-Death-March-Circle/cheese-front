@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <LayoutHeader/>
+      <LayoutShootHeader/>
     </header>
     <Nuxt class="nuxt"/>
   </div>

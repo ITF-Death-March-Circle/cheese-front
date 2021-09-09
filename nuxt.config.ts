@@ -1,10 +1,12 @@
 import { NuxtConfig } from "@nuxt/types"
+import * as FontAwesome from './buildModules/fontawesome'
 
 const config: NuxtConfig = {
   server: {
     host: '0.0.0.0',
     port: 8080 // デフォルト: 3000
   },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'cheese',
@@ -38,6 +40,7 @@ const config: NuxtConfig = {
     '@nuxt/typescript-build',
     '@nuxtjs/composition-api/module',
     '@nuxtjs/tailwindcss',
+    ['@nuxtjs/fontawesome', { component: 'fontAwesome', suffix: true }]
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -47,6 +50,7 @@ const config: NuxtConfig = {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
+    "vue-web-cam/nuxt"
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -67,6 +71,14 @@ const config: NuxtConfig = {
     configPath: 'tailwind.config.ts',
     exposeConfig: false,
     config: {}
+  },
+
+  fontawesome: {
+    icons: {
+      solid: FontAwesome.solid,
+      regular: FontAwesome.regular,
+      brands: FontAwesome.brands
+    }
   }
 }
 
