@@ -46,6 +46,13 @@
           </li>
           <li class="w-full md:w-auto md:ml-5" @click="toggleStatus">
             <nuxt-link
+              to="demo"
+              class="sm:hover:bg-gray-600 md:block inline-block md:py-1 py-5 px-5 md:px-0 w-full">
+              デモ
+            </nuxt-link>
+          </li>
+          <li class="w-full md:w-auto md:ml-5" @click="toggleStatus">
+            <nuxt-link
               to="beforeshoot"
               class="sm:hover:bg-gray-600 md:block inline-block md:py-1 py-5 px-5 md:px-0 w-full">
               撮影ルームへ

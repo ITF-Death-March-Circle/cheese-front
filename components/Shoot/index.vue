@@ -41,6 +41,8 @@
           <img :src="img" class="img-responsive" />
         </figure>
       </div>
+      <Demo subject-path="/image/image01.jpg" />
+      <a ref="download" @click="download">撮影元データダウンロード</a>
     </div>
   </div>
 </template>
@@ -48,6 +50,9 @@
 
 <script lang="js">
 /* eslint-disable object-shorthand */
+/* eslint-disable no-console */
+import moment from 'moment';
+
 export default {
   data() {
     return {
@@ -77,6 +82,14 @@ export default {
     }
   },
   methods: {
+    download() {
+      const a = this.$refs.download;
+      // Base64文字列をhrefへセット
+      a.href = this.img;
+      // ダウンロード時のファイル名を指定
+      const now = moment(new Date()).format('YYYY-MM-DD_hh-mm-ss');
+      a.download = `${now}.jpg`;
+    },
     onCapture() {
       this.img = this.$refs.webcam.capture();
     },

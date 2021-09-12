@@ -13,7 +13,7 @@ const config: NuxtConfig = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'いつでも、どこでも、誰とでも、みんなで記念写真を' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -23,10 +23,6 @@ const config: NuxtConfig = {
   css: ['~assets/css/reset'],
 
   scss: ['~assets/vars/*.scss'],
-
-  styleResources: {
-    scss: ['~assets/vars/*.scss'],
-  },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ['@/plugins/composition-api'],
@@ -39,8 +35,11 @@ const config: NuxtConfig = {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     '@nuxtjs/composition-api/module',
+    '@nuxtjs/style-resources',
     '@nuxtjs/tailwindcss',
-    ['@nuxtjs/fontawesome', { component: 'fontAwesome', suffix: true }]
+    ['@nuxtjs/fontawesome', { component: 'fontAwesome', suffix: true }],
+    '@nuxtjs/moment',
+    "vue-web-cam/nuxt"
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -49,8 +48,6 @@ const config: NuxtConfig = {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@nuxtjs/style-resources',
-    "vue-web-cam/nuxt"
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -66,6 +63,11 @@ const config: NuxtConfig = {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
+  styleResources: {
+    scss: ['~assets/vars/*.scss'],
+    hoistUseStatements: true
+  },
+
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
     configPath: 'tailwind.config.ts',
@@ -78,6 +80,18 @@ const config: NuxtConfig = {
       solid: FontAwesome.solid,
       regular: FontAwesome.regular,
       brands: FontAwesome.brands
+    }
+  },
+
+  moment: {
+    locales: ['ja']
+  },
+
+  typescript: {
+    typeCheck: {
+      eslint: {
+        files: './**/*.{ts,js,vue}'
+      }
     }
   }
 }
