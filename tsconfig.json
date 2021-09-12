@@ -28,12 +28,12 @@
       "@nuxtjs/axios",
       "@types/node",
       "@types/jest"
-    ]
+    ],
+    "skipLibCheck": true
   },
   "exclude": [
     "node_modules",
     ".nuxt",
     "dist"
-  ],
-  "skipLibCheck": true
+  ]
 }
