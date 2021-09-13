@@ -39,7 +39,6 @@ const config: NuxtConfig = {
     '@nuxtjs/tailwindcss',
     ['@nuxtjs/fontawesome', { component: 'fontAwesome', suffix: true }],
     '@nuxtjs/moment',
-    "vue-web-cam/nuxt"
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -48,7 +47,8 @@ const config: NuxtConfig = {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@nuxt/image'
+    '@nuxt/image',
+    "vue-web-cam/nuxt"
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
