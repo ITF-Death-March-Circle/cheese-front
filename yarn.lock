@@ -12087,9 +12087,9 @@ unplugin-vue2-script-setup@^0.5.6:
     unplugin "^0.2.7"
 
 unplugin@^0.2.7:
-  version "0.2.8"
-  resolved "https://registry.yarnpkg.com/unplugin/-/unplugin-0.2.8.tgz#b1bc87f19c937e1c7971bed93d9bdcacf8cfcfe5"
-  integrity sha512-6QsdpTNteT5lZO3tGcCwkXWzieXuM0uA0n5rpT8j+/K6BNRlHyQcQ2hpA6KLWR6hlzmXsas/ZCaGhOiiOMAGYg==
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/unplugin/-/unplugin-0.2.9.tgz#8846121113a90df8ea4ef78b171cd739e36b0143"
+  integrity sha512-Hy14s+kkQZhQjkRcrkz5FYqbqYVDh5ck+XVe9SfQH71oTTmDoDTbpkJ4zdr7hJIkK9YqEIdbFH6nMxwj6ynBMA==
   dependencies:
     upath "^2.0.1"
     webpack-virtual-modules "^0.4.3"
