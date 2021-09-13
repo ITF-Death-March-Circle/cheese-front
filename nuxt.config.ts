@@ -47,7 +47,7 @@ const config: NuxtConfig = {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@nuxt/image',
+    // '@nuxt/image',
     "vue-web-cam/nuxt"
   ],
 
@@ -96,14 +96,14 @@ const config: NuxtConfig = {
     }
   },
 
-  image: {
-    domains: [
-      'dmc-cheese.imgix.net'
-    ],
-    imgix: {
-      baseURL: 'https://dmc-cheese.imgix.net'
-    }
-  }
+  // image: {
+  //   domains: [
+  //     'dmc-cheese.imgix.net'
+  //   ],
+  //   imgix: {
+  //     baseURL: 'https://dmc-cheese.imgix.net'
+  //   }
+  // }
 }
 
 export default config;
