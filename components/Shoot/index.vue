@@ -43,6 +43,7 @@
       </div>
       <Demo subject-path="/image/image01.jpg" />
       <a ref="download" @click="download">撮影元データダウンロード</a>
+      <!-- <nuxt-img src="https://dmc-cheese.imgix.net/image/image02.png" class="img-responsive" /> -->
     </div>
   </div>
 </template>

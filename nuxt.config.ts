@@ -48,6 +48,7 @@ const config: NuxtConfig = {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxt/image'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -92,6 +93,15 @@ const config: NuxtConfig = {
       eslint: {
         files: './**/*.{ts,js,vue}'
       }
+    }
+  },
+
+  image: {
+    domains: [
+      'dmc-cheese.imgix.net'
+    ],
+    imgix: {
+      baseURL: 'https://dmc-cheese.imgix.net'
     }
   }
 }
