@@ -29,7 +29,7 @@ jobs:
       - name: copy publish files
         run: |
           mkdir publish
-          cp -r .nuxt server static nuxt.config.ts tsconfig.json package*.json publish/
+          cp -r .nuxt server static nuxt.config.ts package*.json publish/
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
