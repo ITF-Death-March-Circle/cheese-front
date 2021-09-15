@@ -41,7 +41,7 @@
           <img :src="img" class="img-responsive" />
         </figure>
       </div>
-      <Demo subject-path="/image/image01.jpg" />
+      <Demo :subject-path="img" />
       <a ref="download" @click="download">撮影元データダウンロード</a>
       <!-- <nuxt-img src="https://dmc-cheese.imgix.net/image/image02.png" class="img-responsive" /> -->
     </div>
@@ -93,6 +93,7 @@ export default {
     },
     onCapture() {
       this.img = this.$refs.webcam.capture();
+      console.log(this.img);
     },
     onStarted(stream) {
       console.log("On Started Event", stream);
