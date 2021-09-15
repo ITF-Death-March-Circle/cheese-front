@@ -70,4 +70,4 @@ const config: NuxtConfig = {
   }
 }
 
-export default config;
+module.exports = config;
