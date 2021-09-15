@@ -57,7 +57,7 @@ jobs:
 
       - name: npm ci for production
         run: |
-          ls
+          ls -la
           npm ci --production
 
       - name: 'Deploy to Azure Web App'
@@ -67,4 +67,4 @@ jobs:
           app-name: 'cheese-itf'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_874AF7C691714B0EB899EB72B98251C3 }}
-          package: 'artifact'
+          package: .
