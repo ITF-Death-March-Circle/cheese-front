@@ -57,7 +57,7 @@ jobs:
 
       - name: npm ci for production
         run: |
-          cd artifact
+          cd publish
           npm ci --production
 
       - name: 'Deploy to Azure Web App'
