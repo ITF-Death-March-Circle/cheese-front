@@ -34,7 +34,7 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
-          name: artifact
+          name: production
           path: publish
 
   deploy:
@@ -48,7 +48,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: artifact
+          name: production
 
       - name: Set up Node.js version
         uses: actions/setup-node@v1
