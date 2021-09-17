@@ -60,7 +60,7 @@
     "stylelint-config-recommended": "^5.0.0",
     "tailwindcss": "^2.2.15",
     "ts-jest": "^27.0.3",
-    "vue-jest": "^3.0.4",
-    "vue-web-cam": "^1.9.0"
+    "typescript": "^4.4.3",
+    "vue-jest": "^3.0.4"
   }
 }

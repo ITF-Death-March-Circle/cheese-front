@@ -21,21 +21,20 @@ jobs:
         with:
           node-version: '14.x'
 
-      - name: yarn install, build, and test
+      - name: npm install, build, and test
         run: |
-          yarn install
-          yarn run build --if-present
-          yarn run --if-present test
+          npm ci
+          npm run build
 
       - name: copy publish files
         run: |
           mkdir publish
-          cp -r .nuxt server static nuxt.config.ts package*.json node_modules publish/
+          cp -r .nuxt server static nuxt.config.ts package*.json publish/
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
-          name: node-app
+          name: artifact
           path: publish
 
   deploy:
@@ -49,7 +48,17 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: node-app
+          name: artifact
+
+      - name: Set up Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: npm ci for production
+        run: |
+          ls -la
+          npm ci --production
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
