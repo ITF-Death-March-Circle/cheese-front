@@ -1,0 +1,9 @@
+{
+  "appService.zipIgnorePattern": [
+    "node_modules{,/**}",
+    ".vscode{,/**}",
+    ".nuxt{,/**}"
+  ],
+  "appService.defaultWebAppToDeploy": "/subscriptions/7b5238d0-a9fa-44f3-86a0-6b8517a2f329/resourceGroups/spino-cap/providers/Microsoft.Web/sites/cheese-itf",
+  "appService.deploySubpath": "."
+}
