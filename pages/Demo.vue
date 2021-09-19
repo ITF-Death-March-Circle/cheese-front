@@ -11,7 +11,7 @@ export default {
   props: {
     subjectPath: {
       type: String,
-      default: "/image/image01.png"
+      default: "/image/image01.jpg"
     },
     capPath: {
       type: String,
