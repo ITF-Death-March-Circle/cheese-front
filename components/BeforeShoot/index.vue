@@ -10,29 +10,7 @@
     </div>
     <p class="before-shoot__message">カメラへのアクセスを求められたら「許可」を選択して下さい！</p>
     <nuxt-link to="shoot">
-      <button class="open-shoot-modal-button">
-        <p class="open-shoot-modal-button__text">
-          撮影する
-        </p>
-        <font-awesome-icon :icon="['fas', 'camera']" class="ml-5"/>
-      </button>
+      <CommonButton />
     </nuxt-link>
   </section>
 </template>
-
-<script lang="ts">
-export default {
-
-}
-</script>
-
-<style lang="scss" scoped>
-.open-shoot-modal-button {
-  display: flex;
-  align-items: center;
-  background: $ui-yellow ;
-  border-radius: 50px;
-  padding: 10px 20px;
-
-}
-</style>
