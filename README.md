@@ -1,7 +1,4 @@
-# CheeseFront
-いつでも、どこでも、誰とでも、みんなで記念写真を
-
-↑h1の次の一行はサービスワーカーのDescription用の文
+# deathma-front
 
 ## Build Setup
 

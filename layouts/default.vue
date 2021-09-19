@@ -3,12 +3,6 @@
     <header>
       <LayoutHeader/>
     </header>
-    <Nuxt class="nuxt"/>
+    <Nuxt/>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.nuxt {
-  padding-top: 56px;
-}
-</style>
