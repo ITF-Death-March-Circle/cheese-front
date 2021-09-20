@@ -87,11 +87,13 @@ export default {
     upload(){
       const imageFile = new File([this.img], "hogehoge.jpg", {type: "image/jpg"});
       const params = new FormData();
-      params.append("image",imageFile)
-      this.$axios.$post("http://localhost:8080/upload",params)
+      params.append("file",imageFile)
+      this.$axios.$post("http://localhost/upload",params)
         .then(res=>{
           console.log(res)
           alert("送信完了")
+        }).catch(err=>{
+          console.log(err)
         })
     },
     download() {
