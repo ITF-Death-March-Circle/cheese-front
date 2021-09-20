@@ -1,0 +1,12 @@
+version: "3.0"
+services:
+  webapp:
+    build:
+      context: .
+    volumes:
+      - /node_modules
+      - ./:/app
+    ports:
+      - "3000:3000"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
