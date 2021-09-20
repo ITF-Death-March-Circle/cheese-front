@@ -44,13 +44,14 @@
 
       <a ref="download" @click="download">撮影元データダウンロード</a>
       <!-- <nuxt-img src="https://dmc-cheese.imgix.net/image/image02.png" class="img-responsive" /> -->
+
     </div>
   </div>
 </template>
-
-
 <script lang="js">
-/* eslint-disable object-shorthand */
+/* eslint-disable
+
+ object-shorthand */
 /* eslint-disable no-console */
 import moment from 'moment';
 
@@ -83,6 +84,18 @@ export default {
     }
   },
   methods: {
+    upload(){
+      const imageFile = new File([this.img], "hogehoge.jpg", {type: "image/jpg"});
+      const params = new FormData();
+      params.append("file",imageFile)
+      this.$axios.$post("http://localhost/upload",params)
+        .then(res=>{
+          console.log(res)
+          alert("送信完了")
+        }).catch(err=>{
+          console.log(err)
+        })
+    },
     download() {
       const a = this.$refs.download;
       // Base64文字列をhrefへセット
@@ -94,6 +107,7 @@ export default {
     onCapture() {
       this.img = this.$refs.webcam.capture();
       this.$router.push('aftershoot')
+      this.upload()
     },
     onStarted(stream) {
       console.log("On Started Event", stream);
