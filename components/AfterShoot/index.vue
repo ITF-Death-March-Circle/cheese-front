@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class='header-text text-center m-4'>出来上がった写真！</div>
-    <canvas ref='canvas' class='frame m-4'></canvas>
+    <div class='frame m-4'>
+      <canvas ref='canvas' class='m-4'></canvas>
+      <p class='text-center'>出来上がった写真！</p>
+    </div>
     <div class='flex flex-row justify-center'>
       <nuxt-link to='shoot'>
         <CommonButton class='open-shoot-modal-button' text='再撮影' />
