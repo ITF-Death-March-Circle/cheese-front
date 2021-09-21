@@ -86,7 +86,11 @@ export default {
       deviceId: null,
       devices: [],
       connection: null,
-      resultVote: {}
+      resultVote: {
+        value: "0",
+        text: "text",
+        count: "0"
+      }
     }
   },
   computed: {
@@ -106,19 +110,17 @@ export default {
         this.camera = first.deviceId
         this.deviceId = first.deviceId
       }
-    },
-    resultVote: function(data) {
-      this.resultVote = data
     }
   },
   created() {
+    const self = this
     console.log("Starting connection to WebSocket Server")
-    this.connection = new WebSocket("wss://localhost")
+    this.connection = new WebSocket("ws://localhost/ws")
 
     this.connection.onmessage = function(event) {
       if (event && event.data) {
         console.log(JSON.parse(event.data));
-        this.resultVote = JSON.parse(event.data)
+        self.resultVote = JSON.parse(event.data)
       }
     }
 
@@ -126,6 +128,9 @@ export default {
       console.log(event)
       console.log("Successfully connected to the echo websocket server...")
     }
+  },
+  beforeDestroy() {
+    this.connection.close()
   },
   methods: {
     upload() {
