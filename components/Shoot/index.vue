@@ -3,14 +3,14 @@
     <div class='row'>
       <div class='col-md-6'>
         <div class='text-center header-text'>好きな背景を選んでね！</div>
-        <div class='flex flex-row justify-center m-4'>
-          <button class='open-shoot-modal-button' @click="voteBackground('BACKGROUND_1')">
+        <div class='flex flex-row justify-center m-2'>
+          <button class='open-shoot-modal-button m-3' @click="voteBackground('BACKGROUND_1')">
             海
           </button>
-          <button class='open-shoot-modal-button' @click="voteBackground('BACKGROUND_2')">
+          <button class='open-shoot-modal-button m-3' @click="voteBackground('BACKGROUND_2')">
             山
           </button>
-          <button class='open-shoot-modal-button' @click="voteBackground('BACKGROUND_3')">
+          <button class='open-shoot-modal-button m-3' @click="voteBackground('BACKGROUND_3')">
             秘密
           </button>
         </div>
@@ -49,7 +49,7 @@
             </select>
           </div>
           <div class='flex justify-center col-md-12 button-container'>
-            <CommonButton text='撮影する' @click='onCapture'></CommonButton>
+            <CommonButton text='撮影する' class='m-4' @click='onCapture'></CommonButton>
           </div>
 
         </div>
@@ -108,20 +108,20 @@ export default {
     }
   },
   created() {
-    console.log('Starting connection to WebSocket Server')
-    this.connection = new WebSocket('ws://localhost/ws')
-
-    this.connection.onmessage = function(event) {
-      if (event && event.data) {
-        console.log(JSON.parse(event.data))
-        self.resultVote = JSON.parse(event.data)
-      }
-    }
-
-    this.connection.onopen = function(event) {
-      console.log(event)
-      console.log('Successfully connected to the echo websocket server...')
-    }
+    // console.log('Starting connection to WebSocket Server')
+    // this.connection = new WebSocket('ws://localhost/ws')
+    //
+    // this.connection.onmessage = function(event) {
+    //   if (event && event.data) {
+    //     console.log(JSON.parse(event.data))
+    //     self.resultVote = JSON.parse(event.data)
+    //   }
+    // }
+    //
+    // this.connection.onopen = function(event) {
+    //   console.log(event)
+    //   console.log('Successfully connected to the echo websocket server...')
+    // }
   },
   beforeDestroy() {
     this.connection.close()
@@ -200,9 +200,10 @@ export default {
 <style lang='scss' scoped>
 .open-shoot-modal-button {
   background: $ui-yellow;
-  border-radius: 50px;
-  padding: 0.6rem 2rem;
-  margin: 0 2rem;
+  border-radius: 8px;
+  padding: 0.5rem 1.5rem;
+  width: auto;
+  font-weight: bolder;
   //font-size: 1.5rem;
 }
 
@@ -211,7 +212,7 @@ export default {
 }
 
 .header-text {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin: 0.1rem;
 }
