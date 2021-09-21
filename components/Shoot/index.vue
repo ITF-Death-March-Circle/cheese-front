@@ -2,8 +2,8 @@
   <div class='shoot'>
     <div class='row'>
       <div class='col-md-6'>
-        <h2>Current Camera</h2>
-        <code v-if='device'>{{ device.label }}</code>
+        <!-- <h2>Current Camera</h2>
+        <code v-if='device'>{{ device.label }}</code> -->
         <div class='border'>
           <vue-web-cam
             ref='webcam'
@@ -32,20 +32,19 @@
           <div class='flex flex-row col-md-12'>
             <button type='button' class='open-shoot-modal-button btn btn-primary' @click='onCapture'>Capture Photo
             </button>
-            <button type='button' class='open-shoot-modal-button btn btn-danger' @click='onStop'>Stop Camera</button>
-            <button type='button' class='open-shoot-modal-button btn btn-success' @click='onStart'>Start Camera</button>
+            <!-- <button type='button' class='open-shoot-modal-button btn btn-danger' @click='onStop'>Stop Camera</button>
+            <button type='button' class='open-shoot-modal-button btn btn-success' @click='onStart'>Start Camera</button> -->
           </div>
         </div>
       </div>
-      <div class='col-md-6'>
+      <!-- <div class='col-md-6'>
         <h2>Captured Image</h2>
         <figure class='figure'>
           <img :src='img' class='img-responsive' />
         </figure>
-      </div>
+      </div> -->
 
-      <a ref='download' @click='download'>撮影元データダウンロード</a>
-      <!-- <nuxt-img src="https://dmc-cheese.imgix.net/image/image02.png" class="img-responsive" /> -->
+      <!-- <a ref='download' @click='download'>撮影元データダウンロード</a> -->
 
     </div>
   </div>

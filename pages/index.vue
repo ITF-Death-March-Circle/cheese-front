@@ -1,3 +1,3 @@
 <template>
-  <Example />
+  <BeforeShoot />
 </template>
