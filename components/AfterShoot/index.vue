@@ -35,7 +35,8 @@ export default {
   },
   methods: {
     download() {
-      this.$axios.$get('https://cheeseapi.azurewebsites.net/download')
+      const token = process.env.TOKEN || "hogehoge"
+      this.$axios.$get(`https://cheeseapi.azurewebsites.net/download?token=${token}`)
         .then(res => {
           this.resultImage = res.base64
         }).catch(
