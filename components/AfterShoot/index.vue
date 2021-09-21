@@ -70,6 +70,7 @@ export default {
 
 <style lang='scss' scoped>
 .open-shoot-modal-button {
+  background: $ui-yellow;
   border-radius: 4px;
   padding: 1rem 1.5rem;
   margin: 1rem;
