@@ -2,8 +2,27 @@
   <div class='shoot'>
     <div class='row'>
       <div class='col-md-6'>
-        <!-- <h2>Current Camera</h2>
-        <code v-if='device'>{{ device.label }}</code> -->
+        <div class='text-center header-text'>好きな背景を選んでね！</div>
+        <div class='flex flex-row justify-center m-2'>
+          <button class='open-shoot-modal-button m-3' @click="voteBackground('BACKGROUND_1')">
+            海
+          </button>
+          <button class='open-shoot-modal-button m-3' @click="voteBackground('BACKGROUND_2')">
+            山
+          </button>
+          <button class='open-shoot-modal-button m-3' @click="voteBackground('BACKGROUND_3')">
+            秘密
+          </button>
+        </div>
+
+        <div class='flex flex-row justify-between col-md-12 text-container mx-4'>
+          <div class=''>
+            現在の背景：{{ resultVote.text }}
+          </div>
+          <div class=''>
+            現在のユーザー数：{{ resultVote.count }}人
+          </div>
+        </div>
         <div class='border'>
           <vue-web-cam
             ref='webcam'
@@ -29,34 +48,10 @@
               </option>
             </select>
           </div>
-          <div class='flex flex-row col-md-12'>
-            <button type='button' class='open-shoot-modal-button btn btn-primary' @click='onCapture'>Capture Photo
-            </button>
-            <!-- <button type='button' class='open-shoot-modal-button btn btn-danger' @click='onStop'>Stop Camera</button>
-            <button type='button' class='open-shoot-modal-button btn btn-success' @click='onStart'>Start Camera</button> -->
+          <div class='flex justify-center col-md-12 button-container'>
+            <CommonButton text='撮影する' class='m-4' @click.native='onCapture'></CommonButton>
           </div>
-          <div class="flex flex-row col-md-12">
-            <button class="open-shoot-modal-button" @click="voteBackground('BACKGROUND_1')">
-              背景１
-            </button>
-            <button class="open-shoot-modal-button" @click="voteBackground('BACKGROUND_2')">
-              背景２
-            </button>
-            <button class="open-shoot-modal-button" @click="voteBackground('BACKGROUND_3')">
-              背景３
-            </button>
-          </div>
-          <div class="flex flex-row col-md-12">
-            <div class="">
-              選ばれた背景画像番号：{{resultVote.value}}
-            </div>
-            <div class="">
-              テキスト：{{resultVote.text}}
-            </div>
-            <div class="">
-              同時接続数：{{resultVote.count}}
-            </div>
-          </div>
+
         </div>
       </div>
       <!-- <div class='col-md-6'>
@@ -87,9 +82,9 @@ export default {
       devices: [],
       connection: null,
       resultVote: {
-        value: "0",
-        text: "text",
-        count: "0"
+        value: '0',
+        text: 'お楽しみ！',
+        count: '0'
       }
     }
   },
@@ -113,20 +108,18 @@ export default {
     }
   },
   created() {
-    const self = this
     console.log("Starting connection to WebSocket Server")
     this.connection = new WebSocket("wss://cheeseapi.azurewebsites.net/ws")
-
     this.connection.onmessage = function(event) {
       if (event && event.data) {
-        console.log(JSON.parse(event.data));
+        console.log(JSON.parse(event.data))
         self.resultVote = JSON.parse(event.data)
       }
     }
 
     this.connection.onopen = function(event) {
       console.log(event)
-      console.log("Successfully connected to the echo websocket server...")
+      console.log('Successfully connected to the echo websocket server...')
     }
   },
   beforeDestroy() {
@@ -196,23 +189,34 @@ export default {
       console.log('On Camera Change Event', deviceId)
     },
     voteBackground(key) {
-      console.log(this.connection);
+      console.log(this.connection)
       const object = {
-        "action": 'VOTE_BACKGROUND',
-        "key": key
+        'action': 'VOTE_BACKGROUND',
+        'key': key
       }
-      console.log(JSON.stringify(object));
-      this.connection.send(JSON.stringify(object));
+      console.log(JSON.stringify(object))
+      this.connection.send(JSON.stringify(object))
     }
   }
 }
 </script>
 <style lang='scss' scoped>
 .open-shoot-modal-button {
-  display: flex;
-  align-items: center;
   background: $ui-yellow;
-  border-radius: 50px;
-  padding: 10px 20px;
+  border-radius: 8px;
+  padding: 0.5rem 1.5rem;
+  width: auto;
+  font-weight: bolder;
+  //font-size: 1.5rem;
+}
+
+.button-container {
+  margin: 0.3rem;
+}
+
+.header-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0.1rem;
 }
 </style>
