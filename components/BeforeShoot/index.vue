@@ -18,9 +18,9 @@
 <style lang='scss' scoped>
 .open-shoot-modal-button {
   background: $ui-yellow;
-  border-radius: 50px;
-  padding: 0.6rem 2rem;
-  margin: 0 2rem;
+  border-radius: 16px;
+  padding: 0.6rem 1.5rem;
+  margin: 0 1rem;
   font-size: 1.5rem;
 }
 
