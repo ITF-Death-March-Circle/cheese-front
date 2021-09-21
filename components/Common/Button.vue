@@ -1,5 +1,5 @@
 <template>
-  <button class="flex flex-row items-center sopen-shoot-modal-button">
+  <button class="flex flex-row items-center open-shoot-modal-button">
     <p>
       {{text}}
     </p>
