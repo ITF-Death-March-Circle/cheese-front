@@ -34,10 +34,12 @@ export default {
     },
     rendering() {
       const canvas = this.$refs.canvas;
+      canvas.width = window.innerWidth;
+      canvas.height = (window.innerWidth * 3) / 4
       const ctx = canvas.getContext('2d');
       const subjectImg = new Image();
       subjectImg.onload = function(){
-        ctx.drawImage(subjectImg, 0, 0, 200, 200);
+        ctx.drawImage(subjectImg, 0, 0, window.innerWidth, (window.innerWidth * 3) / 4);
       }
       subjectImg.src = this.resultImage;
     }
