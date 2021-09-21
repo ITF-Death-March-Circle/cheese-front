@@ -49,7 +49,7 @@
             </select>
           </div>
           <div class='flex justify-center col-md-12 button-container'>
-            <CommonButton text='撮影する' class='m-4' @click='onCapture'></CommonButton>
+            <CommonButton text='撮影する' class='m-4' @click.native='onCapture'></CommonButton>
           </div>
 
         </div>
@@ -108,20 +108,20 @@ export default {
     }
   },
   created() {
-    // console.log('Starting connection to WebSocket Server')
-    // this.connection = new WebSocket('ws://localhost/ws')
-    //
-    // this.connection.onmessage = function(event) {
-    //   if (event && event.data) {
-    //     console.log(JSON.parse(event.data))
-    //     self.resultVote = JSON.parse(event.data)
-    //   }
-    // }
-    //
-    // this.connection.onopen = function(event) {
-    //   console.log(event)
-    //   console.log('Successfully connected to the echo websocket server...')
-    // }
+    console.log('Starting connection to WebSocket Server')
+    this.connection = new WebSocket('ws://localhost/ws')
+
+    this.connection.onmessage = function(event) {
+      if (event && event.data) {
+        console.log(JSON.parse(event.data))
+        self.resultVote = JSON.parse(event.data)
+      }
+    }
+
+    this.connection.onopen = function(event) {
+      console.log(event)
+      console.log('Successfully connected to the echo websocket server...')
+    }
   },
   beforeDestroy() {
     this.connection.close()
