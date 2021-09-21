@@ -9,7 +9,7 @@
     </div>
     <div class='flex justify-center m-4'>
       <nuxt-link to='shoot'>
-        <CommonButton text='写真を撮りに行く'/>
+        <CommonButton text='写真を撮りに行く' />
       </nuxt-link>
     </div>
   </section>
