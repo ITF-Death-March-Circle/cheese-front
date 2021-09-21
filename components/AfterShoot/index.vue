@@ -25,12 +25,7 @@ export default {
   methods: {
     download() {
       this.$axios.$get("http://localhost/download")
-        .then(res=>{
-          console.log(res)
-          this.resultImage = res.base64
-        }).catch(err=>{
-          console.log(err)
-        })
+        .then().catch()
     },
     rendering() {
       const canvas = this.$refs.canvas;
