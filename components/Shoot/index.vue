@@ -108,21 +108,20 @@ export default {
     }
   },
   created() {
-    // const self = this
     console.log('Starting connection to WebSocket Server')
-    // this.connection = new WebSocket('ws://localhost/ws')
-    //
-    // this.connection.onmessage = function(event) {
-    //   if (event && event.data) {
-    //     console.log(JSON.parse(event.data))
-    //     self.resultVote = JSON.parse(event.data)
-    //   }
-    // }
-    //
-    // this.connection.onopen = function(event) {
-    //   console.log(event)
-    //   console.log('Successfully connected to the echo websocket server...')
-    // }
+    this.connection = new WebSocket('ws://localhost/ws')
+
+    this.connection.onmessage = function(event) {
+      if (event && event.data) {
+        console.log(JSON.parse(event.data))
+        self.resultVote = JSON.parse(event.data)
+      }
+    }
+
+    this.connection.onopen = function(event) {
+      console.log(event)
+      console.log('Successfully connected to the echo websocket server...')
+    }
   },
   beforeDestroy() {
     this.connection.close()
@@ -210,9 +209,10 @@ export default {
 .button-container {
   margin: 0.3rem;
 }
-.header-text{
+
+.header-text {
   font-size: 2rem;
   font-weight: bold;
-  margin:0.1rem;
+  margin: 0.1rem;
 }
 </style>
