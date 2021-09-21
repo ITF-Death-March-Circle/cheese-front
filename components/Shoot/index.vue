@@ -15,7 +15,7 @@
           </button>
         </div>
 
-        <div class='flex flex-row justify-between col-md-12 text-container mx-4'>
+        <div class='flex flex-row justify-between text-container m-2'>
           <div class=''>
             現在の背景：{{ resultVote.text }}
           </div>
