@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class='header-text text-center m-4'>出来上がった写真！</div>
-    <canvas ref='canvas' class='m-4'></canvas>
-    <div class='flex flex-row justify-center m-8'>
+    <canvas ref='canvas' class='frame m-4'></canvas>
+    <div class='flex flex-row justify-center'>
       <nuxt-link to='shoot'>
         <CommonButton class='open-shoot-modal-button' text='再撮影' />
       </nuxt-link>
@@ -71,11 +71,18 @@ export default {
   border-radius: 8px;
   padding: 1rem 1.5rem;
   margin: 1rem;
-  font-size: 1.5rem;
 }
 
 .header-text {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  width: auto;
   font-weight: bold;
+}
+.frame{
+  padding:0.5rem 1rem;
+  color:#5d627b;
+  background: #F7F8FB;
+  border-top: solid 5px #5d627b;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.22);
 }
 </style>
