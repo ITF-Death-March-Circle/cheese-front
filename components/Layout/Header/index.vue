@@ -30,7 +30,7 @@
         class="header__nav w-full md:block absolute left-0 md:static md:bg-none z-20"
       >
         <ul class="md:flex md:justify-end md:items-end">
-          <li class="w-full md:w-auto md:ml-5" @click="toggleStatus">
+          <!-- <li class="w-full md:w-auto md:ml-5" @click="toggleStatus">
             <nuxt-link
               to="/"
               class="sm:hover:bg-gray-600 md:block inline-block md:py-1 py-5 px-5 md:px-0 w-full">
@@ -57,7 +57,7 @@
               class="sm:hover:bg-gray-600 md:block inline-block md:py-1 py-5 px-5 md:px-0 w-full">
               撮影ルームへ
             </nuxt-link>
-          </li>
+          </li> -->
           <li v-if="isNavigatorShareButton" class="w-full md:w-auto md:ml-5" @click="navigatorShare">
             <div class="sm:hover:bg-gray-600 md:block inline-block md:py-1 py-5 px-5 md:px-0 w-full">
               アプリを共有
