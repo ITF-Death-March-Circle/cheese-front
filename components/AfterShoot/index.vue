@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     download() {
-      this.$axios.$get("http://localhost/download")
+      this.$axios.$get("https://cheeseapi.azurewebsites.net/download")
         .then(res=>{
           console.log(res)
           this.resultImage = res.base64

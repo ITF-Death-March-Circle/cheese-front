@@ -115,7 +115,7 @@ export default {
   created() {
     const self = this
     console.log("Starting connection to WebSocket Server")
-    this.connection = new WebSocket("ws://localhost/ws")
+    this.connection = new WebSocket("wss://cheeseapi.azurewebsites.net/ws")
 
     this.connection.onmessage = function(event) {
       if (event && event.data) {
@@ -143,7 +143,7 @@ export default {
       this.$axios({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        url: 'http://localhost:80/upload',
+        url: 'https://cheeseapi.azurewebsites.net/upload',
         data: data
       })
         // this.$axios.$post("http://localhost/upload",params)
