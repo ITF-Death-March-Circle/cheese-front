@@ -35,6 +35,28 @@
             <!-- <button type='button' class='open-shoot-modal-button btn btn-danger' @click='onStop'>Stop Camera</button>
             <button type='button' class='open-shoot-modal-button btn btn-success' @click='onStart'>Start Camera</button> -->
           </div>
+          <div class="flex flex-row col-md-12">
+            <button class="open-shoot-modal-button" @click="voteBackground('BACKGROUND_1')">
+              背景１
+            </button>
+            <button class="open-shoot-modal-button" @click="voteBackground('BACKGROUND_2')">
+              背景２
+            </button>
+            <button class="open-shoot-modal-button" @click="voteBackground('BACKGROUND_3')">
+              背景３
+            </button>
+          </div>
+          <div class="flex flex-row col-md-12">
+            <div class="">
+              選ばれた背景画像番号：{{resultVote.value}}
+            </div>
+            <div class="">
+              テキスト：{{resultVote.text}}
+            </div>
+            <div class="">
+              同時接続数：{{resultVote.count}}
+            </div>
+          </div>
         </div>
       </div>
       <!-- <div class='col-md-6'>
@@ -62,7 +84,13 @@ export default {
       img: null,
       camera: null,
       deviceId: null,
-      devices: []
+      devices: [],
+      connection: null,
+      resultVote: {
+        value: "0",
+        text: "text",
+        count: "0"
+      }
     }
   },
   computed: {
@@ -83,6 +111,26 @@ export default {
         this.deviceId = first.deviceId
       }
     }
+  },
+  created() {
+    const self = this
+    console.log("Starting connection to WebSocket Server")
+    this.connection = new WebSocket("ws://localhost/ws")
+
+    this.connection.onmessage = function(event) {
+      if (event && event.data) {
+        console.log(JSON.parse(event.data));
+        self.resultVote = JSON.parse(event.data)
+      }
+    }
+
+    this.connection.onopen = function(event) {
+      console.log(event)
+      console.log("Successfully connected to the echo websocket server...")
+    }
+  },
+  beforeDestroy() {
+    this.connection.close()
   },
   methods: {
     upload() {
@@ -142,6 +190,15 @@ export default {
       this.deviceId = deviceId
       this.camera = deviceId
       console.log('On Camera Change Event', deviceId)
+    },
+    voteBackground(key) {
+      console.log(this.connection);
+      const object = {
+        "action": 'VOTE_BACKGROUND',
+        "key": key
+      }
+      console.log(JSON.stringify(object));
+      this.connection.send(JSON.stringify(object));
     }
   }
 }
