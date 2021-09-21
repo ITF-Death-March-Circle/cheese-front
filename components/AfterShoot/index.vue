@@ -1,13 +1,21 @@
 <template>
   <div>
     <canvas ref="canvas" class="demo__canvas"></canvas>
-    <nuxt-link to="shoot">
-      <CommonButton text="再撮影" />
-    </nuxt-link>
+    <div class="flex flex-row justify-center m-8">
+      <nuxt-link to="shoot" class="m-4">
+        <CommonButton text="再撮影" />
+      </nuxt-link>
+      <button class="open-shoot-modal-button m-4">
+        <a ref="download" @click="downloadPicture">ダウンロード</a>
+      </button>
+    </div>
   </div>
 </template>
 
 <script lang="js">
+/* eslint-disable no-console */
+import moment from 'moment'
+
 export default {
   data() {
     return {
@@ -32,6 +40,15 @@ export default {
           console.log(err)
         })
     },
+    downloadPicture() {
+      const canvas = this.$refs.canvas;
+      const a = this.$refs.download;
+      // Base64文字列をhrefへセット
+      a.href = canvas.toDataURL('image/jpeg', 1);
+      // ダウンロード時のファイル名を指定
+      const imageName = moment(new Date()).format('cheese-YYYY-MM-DD_hh-mm-ss');
+      a.download = `${imageName}.jpg`;
+    },
     rendering() {
       const canvas = this.$refs.canvas;
       canvas.width = window.innerWidth;
@@ -46,3 +63,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.open-shoot-modal-button {
+  background: $ui-yellow ;
+  border-radius: 8px;
+  padding: 10px 20px;
+}
+</style>
