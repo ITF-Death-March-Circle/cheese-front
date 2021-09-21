@@ -1,6 +1,6 @@
 <template>
-  <button class="open-shoot-modal-button">
-    <p class="open-shoot-modal-button__text">
+  <button class="flex flex-row items-center sopen-shoot-modal-button">
+    <p>
       {{text}}
     </p>
     <font-awesome-icon :icon="icon" class="ml-5"/>
@@ -24,10 +24,6 @@ export default {
 
 <style lang="scss" scoped>
 .open-shoot-modal-button {
-  display: flex;
-  align-items: center;
-  background: $ui-yellow ;
-  border-radius: 50px;
-  padding: 10px 20px;
+  background: $ui-yellow;
 }
 </style>

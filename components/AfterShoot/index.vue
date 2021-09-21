@@ -2,7 +2,7 @@
   <div>
     <div class='header-text text-center m-4'>出来上がった写真！</div>
     <div class='frame m-4'>
-      <canvas ref='canvas' class='m-4'></canvas>
+      <canvas ref='canvas' class='py-2'></canvas>
       <p class='text-center'>出来上がった写真！</p>
     </div>
     <div class='flex flex-row justify-center'>
@@ -71,7 +71,7 @@ export default {
 <style lang='scss' scoped>
 .open-shoot-modal-button {
   background: $ui-yellow;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 1rem 1.5rem;
   margin: 1rem;
 }
