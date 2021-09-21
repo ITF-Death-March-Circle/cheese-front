@@ -203,7 +203,7 @@ export default {
   border-radius: 50px;
   padding: 0.6rem 2rem;
   margin: 0 2rem;
-  font-size: 1.5rem;
+  //font-size: 1.5rem;
 }
 
 .button-container {
