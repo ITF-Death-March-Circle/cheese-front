@@ -91,7 +91,6 @@ export default {
       this.$axios.$post("http://localhost/upload",params)
         .then(res=>{
           console.log(res)
-          alert("送信完了")
         }).catch(err=>{
           console.log(err)
         })
