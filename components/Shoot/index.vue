@@ -147,12 +147,16 @@ export default {
         data: data
       })
         // this.$axios.$post("http://localhost/upload",params)
-        .then(res => {
-          console.log(res)
-        })
-        .catch(err => {
-          console.log(err)
-        })
+        .then(
+        //   res => {
+        //   // console.log(res)
+        // }
+        )
+        .catch(
+        //   err => {
+        //    console.log(err)
+        // }
+        )
     },
     download() {
       const a = this.$refs.download
