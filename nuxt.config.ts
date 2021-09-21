@@ -1,10 +1,16 @@
+import * as path from 'path'
+import * as fs from 'fs'
 import { NuxtConfig } from "@nuxt/types"
 import * as FontAwesome from './buildModules/fontawesome'
 
 const config: NuxtConfig = {
   server: {
     host: '0.0.0.0',
-    port: 8080 // デフォルト: 3000
+    port: 8080, // デフォルト: 3000
+    https: {
+      key: fs.readFileSync(path.resolve(__dirname, "localhost-key.pem")),
+      cert: fs.readFileSync(path.resolve(__dirname, "localhost.pem"))
+    },
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
