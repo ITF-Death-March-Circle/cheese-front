@@ -46,6 +46,17 @@
               背景３
             </button>
           </div>
+          <div class="flex flex-row col-md-12">
+            <div class="">
+              選ばれた背景画像番号：{{resultVote.value}}
+            </div>
+            <div class="">
+              テキスト：{{resultVote.text}}
+            </div>
+            <div class="">
+              同時接続数：{{resultVote.count}}
+            </div>
+          </div>
         </div>
       </div>
       <!-- <div class='col-md-6'>
@@ -74,7 +85,8 @@ export default {
       camera: null,
       deviceId: null,
       devices: [],
-      connection: null
+      connection: null,
+      resultVote: {}
     }
   },
   computed: {
@@ -94,6 +106,9 @@ export default {
         this.camera = first.deviceId
         this.deviceId = first.deviceId
       }
+    },
+    resultVote: function(data) {
+      this.resultVote = data
     }
   },
   created() {
@@ -101,7 +116,10 @@ export default {
     this.connection = new WebSocket("wss://localhost")
 
     this.connection.onmessage = function(event) {
-      console.log(event);
+      if (event && event.data) {
+        console.log(JSON.parse(event.data));
+        this.resultVote = JSON.parse(event.data)
+      }
     }
 
     this.connection.onopen = function(event) {
