@@ -1,7 +1,7 @@
+import * as path from 'path'
+import * as fs from 'fs'
 import { NuxtConfig } from "@nuxt/types"
 import * as FontAwesome from './buildModules/fontawesome'
-import * as fs from 'fs'
-import * as path from 'path'
 
 const config: NuxtConfig = {
   server: {
