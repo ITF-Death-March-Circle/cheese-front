@@ -1,16 +1,10 @@
-import * as path from 'path'
-import * as fs from 'fs'
-import { NuxtConfig } from "@nuxt/types"
+import { NuxtConfig } from '@nuxt/types'
 import * as FontAwesome from './buildModules/fontawesome'
 
 const config: NuxtConfig = {
   server: {
     host: '0.0.0.0',
-    port: 8080, // デフォルト: 3000
-    https: {
-      key: fs.readFileSync(path.resolve(__dirname, "localhost-key.pem")),
-      cert: fs.readFileSync(path.resolve(__dirname, "localhost.pem"))
-    },
+    port: 8080 // デフォルト: 3000
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -20,9 +14,9 @@ const config: NuxtConfig = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'いつでも、どこでも、誰とでも、みんなで記念写真を' },
-      { name: 'format-detection', content: 'telephone=no' },
+      { name: 'format-detection', content: 'telephone=no' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -44,7 +38,7 @@ const config: NuxtConfig = {
     '@nuxtjs/style-resources',
     '@nuxtjs/tailwindcss',
     ['@nuxtjs/fontawesome', { component: 'fontAwesome', suffix: true }],
-    '@nuxtjs/moment',
+    '@nuxtjs/moment'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -54,7 +48,7 @@ const config: NuxtConfig = {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     // '@nuxt/image',
-    "vue-web-cam/nuxt"
+    'vue-web-cam/nuxt'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -63,8 +57,8 @@ const config: NuxtConfig = {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'ja',
-    },
+      lang: 'ja'
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -100,7 +94,7 @@ const config: NuxtConfig = {
         files: './**/*.{ts,js,vue}'
       }
     }
-  },
+  }
 
   // image: {
   //   domains: [
@@ -112,4 +106,4 @@ const config: NuxtConfig = {
   // }
 }
 
-module.exports = config;
+module.exports = config

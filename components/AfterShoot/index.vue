@@ -19,7 +19,6 @@
 <script lang='js'>
 /* eslint-disable no-console */
 import moment from 'moment'
-
 export default {
   data() {
     return {
@@ -36,13 +35,11 @@ export default {
   },
   methods: {
     download() {
-      this.$axios.$get('http://localhost/download')
+      this.$axios.$get('https://cheeseapi.azurewebsites.net/download')
         .then(res => {
-          console.log(res)
           this.resultImage = res.base64
-        }).catch(err => {
-        console.log(err)
-      })
+        }).catch(
+      )
     },
     downloadPicture() {
       const canvas = this.$refs.canvas
