@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class='header-text text-center m-4'>出来上がった写真！</div>
-    <div class='frame m-4'>
+    <div class='flex flex-col justify-center frame m-4'>
       <canvas ref='canvas' class='py-2'></canvas>
       <p class='text-center'>出来上がった写真！</p>
     </div>
