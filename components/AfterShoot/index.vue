@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     download() {
-      const token = process.env.VUE_APP_TOKEN || "hogehoge"
+      const token = this.$config.VUE_APP_TOKEN || "hogehoge"
       this.$axios.$get(`https://cheeseapi.azurewebsites.net/download?token=${token}`)
         .then(res => {
           this.resultImage = res.base64

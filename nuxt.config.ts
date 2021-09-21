@@ -94,8 +94,13 @@ const config: NuxtConfig = {
         files: './**/*.{ts,js,vue}'
       }
     }
+  },
+  publicRuntimeConfig: {
+    VUE_APP_TOKEN: process.env.VUE_APP_TOKEN,
+    axios: {
+      VUE_APP_TOKEN: process.env.VUE_APP_TOKEN
+    }
   }
-
   // image: {
   //   domains: [
   //     'dmc-cheese.imgix.net'
