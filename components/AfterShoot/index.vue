@@ -37,7 +37,7 @@ export default {
   methods: {
     download() {
       const token = this.$config.VUE_APP_TOKEN || 'hogehoge'
-      this.$axios.$get(`https://cheeseapi.azurewebsites.net/download?token=${token}`)
+      this.$axios.$get(`https://cheeseapi.azurewebsites.net/download_preview?token=${token}`)
         .then(res => {
           this.resultImage = res.base64
         }).catch(
