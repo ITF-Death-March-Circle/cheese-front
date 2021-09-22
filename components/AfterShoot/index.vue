@@ -19,6 +19,7 @@
 <script lang='js'>
 /* eslint-disable no-console */
 import moment from 'moment'
+
 export default {
   data() {
     return {
@@ -35,19 +36,23 @@ export default {
   },
   methods: {
     download() {
-      const token = this.$config.VUE_APP_TOKEN || "hogehoge"
+      const token = this.$config.VUE_APP_TOKEN || 'hogehoge'
       this.$axios.$get(`https://cheeseapi.azurewebsites.net/download?token=${token}`)
         .then(res => {
           this.resultImage = res.base64
         }).catch(
-          err=>{console.log(err)}
+        err => {
+          console.log(err)
+        }
       )
     },
     downloadPicture() {
-      const canvas = this.$refs.canvas
+      // const canvas = this.$refs.canvas
       const a = this.$refs.download
       // Base64文字列をhrefへセット
-      a.href = canvas.toDataURL('image/jpeg', 1)
+      // a.href = canvas.toDataURL('image/jpeg', 1)
+      const token = this.$config.VUE_APP_TOKEN || 'hogehoge'
+      a.href = `https://cheeseapi.azurewebsites.net/download?token=${token}`
       // ダウンロード時のファイル名を指定
       const imageName = moment(new Date()).format('cheese-YYYY-MM-DD_hh-mm-ss')
       a.download = `${imageName}.jpg`
@@ -80,11 +85,12 @@ export default {
   width: auto;
   font-weight: bold;
 }
-.frame{
-  padding:0.5rem 1rem;
-  color:#5d627b;
+
+.frame {
+  padding: 0.5rem 1rem;
+  color: #5d627b;
   background: #F7F8FB;
   border-top: solid 5px #5d627b;
-  box-shadow: 0 3px 5px rgba(0,0,0,0.22);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
 </style>
