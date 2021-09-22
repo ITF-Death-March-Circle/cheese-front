@@ -113,7 +113,7 @@ export default {
     this.connection.onmessage = function(event) {
       if (event && event.data) {
         console.log(JSON.parse(event.data))
-        self.resultVote = JSON.parse(event.data)
+        this.resultVote = JSON.parse(event.data)
       }
     }
 
