@@ -108,15 +108,15 @@ export default {
     }
   },
   created() {
-    console.log("Starting connection to WebSocket Server")
-    this.connection = new WebSocket("wss://cheeseapi.azurewebsites.net/ws")
+    const self = this
+    console.log('Starting connection to WebSocket Server')
+    this.connection = new WebSocket('wss://cheeseapi.azurewebsites.net/ws')
     this.connection.onmessage = function(event) {
       if (event && event.data) {
         console.log(JSON.parse(event.data))
-        this.resultVote = JSON.parse(event.data)
+        self.resultVote = JSON.parse(event.data)
       }
     }
-
     this.connection.onopen = function(event) {
       console.log(event)
       console.log('Successfully connected to the echo websocket server...')
@@ -141,14 +141,14 @@ export default {
       })
         // this.$axios.$post("http://localhost/upload",params)
         .then(
-        //   res => {
-        //   // console.log(res)
-        // }
+          //   res => {
+          //   // console.log(res)
+          // }
         )
         .catch(
-        //   err => {
-        //    console.log(err)
-        // }
+          //   err => {
+          //    console.log(err)
+          // }
         )
     },
     download() {
